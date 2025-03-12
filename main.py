@@ -16,6 +16,7 @@ if len(sys.argv) == 2:
         print()
 
         char_count = {}
+        res = 0
         for char in readfile:
             if char.isalnum() or char.isspace():
                 if char in char_count:
@@ -26,15 +27,16 @@ if len(sys.argv) == 2:
         for char, count in sorted(char_count.items()):
             if(char != ' ' and char != "\n"):
                 print(f"'{char}' : {count}")
-
+                res += count
+        print(f"\nFinal characters count : {res}")
         print()
         print("=================DONE=====================")
         print("===========FOR YOUR SERVICE===============")
         print("===============BYE BYE^^==================")
 
-    except Exception:
+    except Exception as e:
         print("Please provide arguments as ./main.py [file]")
-        exit(1)
+        exit(e)
 
 else:
     print("Please provide arguments as ./main.py [file]")
