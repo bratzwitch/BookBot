@@ -4,6 +4,7 @@ if len(sys.argv) == 2:
     try:
         with open(sys.argv[1], "r") as file:
             readfile = file.read()
+        print()
         print("============WELCOME TO BOOKBOT============")
         print("==========LETS ANALISE YOUR FILE==========")
         print("=================POGNALI==================")
@@ -25,7 +26,7 @@ if len(sys.argv) == 2:
                     char_count[char] = 1
 
         for char, count in sorted(char_count.items()):
-            if(char != ' ' and char != "\n"):
+            if(char != ' ' and char != "\n" and char != '\t'):
                 print(f"'{char}' : {count}")
                 res += count
         print(f"\nFinal characters count : {res}")
